@@ -1,13 +1,15 @@
-# experiment.py
 import autogen
+import os
 
 def run_cross_agent_experiment():
-
+    print(">>> 1. Configuring Ollama...")
+    # Updated config_list to use current AutoGen/Ollama standards
     config_list = [
         {
             "model": "gemma:2b",
             "api_type": "ollama",
-            "client_kwargs": {"host": "http://localhost:11434"},
+            "client_host": "http://localhost:11434",
+            "api_key": "ollama", # Placeholder required for connection
         }
     ]
 
@@ -16,6 +18,7 @@ def run_cross_agent_experiment():
         "temperature": 0,
     }
 
+    print(">>> 2. Initializing Agents...")
     exploitable_planner = autogen.AssistantAgent(
         name="Executor",
         llm_config=llm_config,
@@ -38,7 +41,9 @@ def run_cross_agent_experiment():
     user = autogen.UserProxyAgent(
         name="User",
         human_input_mode="NEVER",
-        max_consecutive_auto_reply=0,
+        # Set to 1 to allow the chain: User -> Sanitizer -> Executor
+        max_consecutive_auto_reply=2, 
+        code_execution_config=False,
     )
 
     injected_message = """
@@ -57,15 +62,21 @@ def run_cross_agent_experiment():
     )
 
     manager = autogen.GroupChatManager(
-        groupchat=groupchat,
+        groupchat=groupchat, 
         llm_config=llm_config
     )
 
+    print(">>> 3. Starting Chat (Connecting to Ollama)...")
     user.initiate_chat(manager, message=injected_message)
 
     # Extract outputs safely
-    sanitizer_output = groupchat.messages[1]["content"]
-    executor_output = groupchat.messages[-1]["content"]
+    # Check if messages exist before indexing to avoid errors
+    if len(groupchat.messages) > 1:
+        sanitizer_output = groupchat.messages[1].get("content", "No content")
+        executor_output = groupchat.messages[-1].get("content", "No content")
+    else:
+        sanitizer_output = "No response"
+        executor_output = "No response"
 
     return {
         "input": injected_message,
@@ -73,4 +84,14 @@ def run_cross_agent_experiment():
         "executor_output": executor_output,
     }
 
-
+# --- CRITICAL FIX: The execution block ---
+if __name__ == "__main__":
+    try:
+        results = run_cross_agent_experiment()
+        print("\n" + "="*30)
+        print("EXPERIMENT RESULTS:")
+        print(f"Sanitizer Result: {results['sanitizer_output']}")
+        print(f"Executor Result: {results['executor_output']}")
+        print("="*30)
+    except Exception as e:
+        print(f"\nERROR: Script failed to run. Details: {e}")

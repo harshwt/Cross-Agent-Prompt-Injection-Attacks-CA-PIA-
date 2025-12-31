@@ -1,5 +1,8 @@
 streamlit
 pyautogen
 autogen
-autogen-core 
+autogen-core
+autogen-agentchat
+autogen-ext[ollama]
+
 

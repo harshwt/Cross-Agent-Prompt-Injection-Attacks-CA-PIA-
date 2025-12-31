@@ -1,2 +1,5 @@
 streamlit
 pyautogen
+autogen
+autogen-core 
+

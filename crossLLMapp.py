@@ -1,7 +1,5 @@
 # app.py
 import streamlit as st
-import autogen
-import os
 from experimentLLM import run_cross_agent_experiment
 
 st.set_page_config(
@@ -57,3 +55,4 @@ the injected instruction.
     else:
 
         st.success("Injection Blocked")
+

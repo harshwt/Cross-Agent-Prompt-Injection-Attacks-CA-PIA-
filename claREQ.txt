@@ -1,2 +1,1 @@
-streamlit
-pyautogen==0.10.0
+

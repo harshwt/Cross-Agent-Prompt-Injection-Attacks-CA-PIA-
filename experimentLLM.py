@@ -8,7 +8,7 @@ def run_cross_agent_experiment():
         {
             "model": "gemma:2b",
             "api_type": "ollama",
-            "client_host": "ngrok http 11434 --host-header="localhost:11434"",
+            "client_host": "https://unharboured-figuredly-marg.ngrok-free.dev",
             "api_key": "ollama", # Placeholder required for connection
         }
     ]
@@ -95,4 +95,5 @@ if __name__ == "__main__":
         print("="*30)
     except Exception as e:
         print(f"\nERROR: Script failed to run. Details: {e}")
+
 

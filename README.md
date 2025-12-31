@@ -7,8 +7,6 @@ Cross-LLM Infection: A Novel Attack Vector Exploiting Trust and Inter-Model Comm
 
 Author: Harshwardhan Tiwari
 Category: C1 – Cybersecurity / AI Safety
-Event: Inter-University Avishkar Research Convention 2025–26
-Group No.: 64
 
 📌 Overview
 This research introduces Cross-LLM Infection, a previously underexplored attack vector in multi-agent AI systems where multiple Large Language Models (LLMs) collaborate through shared memory, summaries, and inter-agent communication. 

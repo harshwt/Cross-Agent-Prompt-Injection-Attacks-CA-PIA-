@@ -1,4 +1,2 @@
 streamlit
-pyautogen==0.10.1
-
-
+pyautogen==0.10.0

@@ -32,18 +32,18 @@ The entire system becomes compromised without explicit prompt injection at each 
 
  Vulnerability Background:
 The research is grounded in a Cybersecurity Vulnerability Hierarchy, illustrating how:
-Hidden Weaknesses – Adversarial instructions embedded in untrusted data
-Root Vulnerabilities – Lack of validation for internal outputs
-Visible Symptoms – System-level sabotage, incorrect actions, or operational disruption
+Hidden Weaknesses :– Adversarial instructions embedded in untrusted data
+Root Vulnerabilities :– Lack of validation for internal outputs
+Visible Symptoms :– System-level sabotage, incorrect actions, or operational disruption
 These vulnerabilities accumulate and escalate, culminating in observable failures.
 
  Research Objectives:
 The study explores multiple dimensions of Cross-LLM Infection:
-Prompt Propagation Analysis – How malicious intent survives summarization
-Experimental Testing – Simulated multi-agent pipelines
-Defense Evaluation – Assessing current mitigation strategies
-Attack Classification – Categorizing infection stages
-Security-by-Design Measures – Proposing architectural safeguards
+Prompt Propagation Analysis:- How malicious intent survives summarization
+Experimental Testing :– Simulated multi-agent pipelines
+Defense Evaluation :– Assessing current mitigation strategies
+Attack Classification :– Categorizing infection stages
+Security-by-Design Measures :– Proposing architectural safeguards
 
  Methodology:
 A two-agent LLM pipeline was designed and tested:

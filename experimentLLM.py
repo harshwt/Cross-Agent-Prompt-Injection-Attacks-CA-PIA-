@@ -7,7 +7,7 @@ def run_cross_agent_experiment():
     # experimentLLM.py
     config_list = [
         {
-            "model": "llama3", # Ensure this matches the model you have in Ollama
+            "model": "gemma:2b", # Ensure this matches the model you have in Ollama
             "api_type": "ollama",
             "client_host": "https://unharboured-figuredly-marg.ngrok-free.dev",
             "stream": False,
@@ -96,6 +96,7 @@ if __name__ == "__main__":
         print("="*30)
     except Exception as e:
         print(f"\nERROR: Script failed to run. Details: {e}")
+
 
 
 

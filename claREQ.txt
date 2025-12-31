@@ -4,5 +4,8 @@ autogen
 autogen-core
 autogen-agentchat
 autogen-ext[ollama]
+gemma:2b
+tinyollama
+
 
 

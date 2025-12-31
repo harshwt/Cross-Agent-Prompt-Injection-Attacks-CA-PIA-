@@ -1,6 +1,7 @@
 # Cross-Agent-Prompt-Injection-Attacks-CA-PIA-
 Cross-LLM Infection explores a novel attack vector in multi-agent AI systems where malicious instructions propagate between trusted LLM agents via internal communication. 
-The research exposes inter-model trust vulnerabilities and highlights the need for secure-by-design multi-agent architectures. 
+The research exposes inter-model trust vulnerabilities and highlights the need for secure-by-design multi-agent architectures.
+
 Author: Harshwardhan Tiwari
 
 Cross-LLM Infection: A Novel Attack Vector Exploiting Trust and Inter-Model Communication in Multi-Agent AI Systems
